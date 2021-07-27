@@ -41,7 +41,7 @@ def show_results():
     prediction = round(float(prediction), 3)
 
     # Return the results pge
-    return render_template("results.html", <fill_in_variable_name>=prediction)
+    return render_template("results.html", prediction=prediction)
 
 
 if __name__ == "__main__":
