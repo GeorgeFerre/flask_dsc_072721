@@ -6,10 +6,10 @@ from src.models.predictor import get_prediction
 
 app = Flask(__name__, static_url_path="/static")
 
-@app.route(<route_to_root>)
+@app.route('/')
 def index():
     """Return the main page."""
-    return send_from_directory("static", <file_name> )
+    return send_from_directory("static", 'index.html' )
 
 @app.route("/make_prediction", methods=["post"])
 def make_prediction():
@@ -20,11 +20,11 @@ def make_prediction():
     print(data) # Remove this when you're done debugging
     
     # Convert the data into just a list of values to be sent to the model
-    feature_values = None
+    feature_values = extract_feature_values(data)
     print(feature_values) # Remove this when you're done debugging
 
     # Send the values to the model to get a prediction
-    prediction = None
+    prediction = get_prediction(feature_values=feature_values)
 
     # Tell the browser to fetch the results page, passing along the prediction
     return redirect(url_for("show_results", prediction=prediction))
@@ -34,7 +34,7 @@ def show_results():
     """ Display the results page with the provided prediction """
     
     # Extract the prediction from the URL params
-    prediction = request.args.get("<fill_in_param_name>")
+    prediction = request.args.get("prediction")
     
 
     # Round it for display purposes

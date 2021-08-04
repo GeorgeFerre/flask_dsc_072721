@@ -6,9 +6,9 @@ def extract_feature_values(data):
     # Replace these features with the features for your model. They need to 
     # correspond with the `name` attributes of the <input> tags
     EXPECTED_FEATURES = [
-        "adult_antelope_population",
-        "annual_precipitation",
-        "winter_severity_index"
+        'is_weekend',
+        'vic_number'
+        
     ]
 
     # This assumes all inputs will be numeric. If you have categorical features
